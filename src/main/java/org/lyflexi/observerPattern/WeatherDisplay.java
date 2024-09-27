@@ -1,19 +1,23 @@
 package org.lyflexi.observerPattern;
 
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @Author: ly
  * @Date: 2024/3/13 17:46
  */
-
+@Data
+@Slf4j
 public class WeatherDisplay implements Observer {
-    private Subject subject;
+    private String weatherDisplayName;
     private float temperature;//温度
     private float humidity;//湿度
     private float pressure;//气压
 
-    public WeatherDisplay(Subject subject) {//注册监听对象
-        this.subject = subject;
+    public WeatherDisplay(Subject subject,String weatherDisplayName) {//注册监听对象
         subject.registerObserver(this);
+        this.weatherDisplayName = weatherDisplayName;
     }
 
     @Override
@@ -21,11 +25,13 @@ public class WeatherDisplay implements Observer {
         this.temperature = temperature;
         this.humidity = humidity;
         this.pressure = pressure;
+        log.info("被动通知：当前观察者为：{},触发更新温度为：{},湿度为：{},气压为：{}",this.weatherDisplayName,temperature,humidity, pressure);
     }
 
     public void display(){
-        System.out.println("当前最新的温度为：" + temperature + ",湿度为：" + humidity +
-                ",气压为：" + pressure);
+        log.info("主动展示：当前观察者为：{},更新后的温度为：{},湿度为：{},气压为：{}",this.weatherDisplayName,temperature,humidity, pressure);
     }
+
+
 }
 
