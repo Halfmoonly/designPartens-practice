@@ -1,4 +1,4 @@
-package org.lyflexi.chainOfResponsibilityPattern.chain;
+package org.lyflexi.responsibilityChainPattern.chainOfBuilder;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -8,24 +8,24 @@ import org.apache.commons.lang3.StringUtils;
  */
 
 
-public class VerifyAccountHandler extends MyHandler {
+public class VerifyAccountHandler extends AbstractHandler {
     @Override
-    public void doHandler(LoginUser loginUser) {
+    public boolean doHandler(LoginUser loginUser) {
         if (StringUtils.isBlank(loginUser.getLoginName())){
             System.out.println("用户名不能为空");
-            return;
+            return false;
         }
         if (StringUtils.isBlank(loginUser.getPassword())){
             System.out.println("密码不能为空");
-            return;
+            return false;
         }
         if (!loginUser.getPassword().equals("123456")){
             System.out.println("密码不正确");
-            return;
+            return false;
         }
-        System.out.println("账号密码校验通过");
+        System.out.println("1.账号密码校验通过");
 
-        next.doHandler(loginUser);
+        return super.handle(loginUser);
     }
 }
 

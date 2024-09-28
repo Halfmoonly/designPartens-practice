@@ -1,4 +1,4 @@
-package org.lyflexi.chainOfResponsibilityPattern.chainHasBuilder;
+package org.lyflexi.responsibilityChainPattern.chainOfBuilder;
 
 /**
  * @Author: ly
@@ -13,10 +13,10 @@ public class TestBuildChain {
         loginUser.setRoleName("admin");
         loginUser.setPermission("admin");
 
-        BuildHandler.Builder builder = new BuildHandler.Builder();
-        builder.addHanlder(new VerifyAccountHandler())
+        ChainBuilder chainBuilder = new ChainBuilder();
+        chainBuilder.addHanlder(new VerifyAccountHandler())
                 .addHanlder(new VerifyRoleHanlder())
                 .addHanlder(new VerifyPermissionHanlder());
-        builder.build().doHandler(loginUser);
+        chainBuilder.build().doHandler(loginUser);
     }
 }

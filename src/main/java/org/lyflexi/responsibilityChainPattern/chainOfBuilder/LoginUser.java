@@ -1,4 +1,4 @@
-package org.lyflexi.chainOfResponsibilityPattern.chainHasBuilder;
+package org.lyflexi.responsibilityChainPattern.chainOfBuilder;
 
 /**
  * @Author: ly

@@ -1,4 +1,4 @@
-package org.lyflexi.chainOfResponsibilityPattern.chain;
+package org.lyflexi.responsibilityChainPattern.chainOfFactory;
 
 import org.apache.commons.lang3.StringUtils;
 
