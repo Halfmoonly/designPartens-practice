@@ -1,8 +1,8 @@
-package org.lyflexi.responsibilityChainPattern.chainOfGeneric.handler.userhandler;
+package org.lyflexi.responsibilityChainPattern.chainOfGenericFactory.handler.userhandler;
 
 import org.apache.commons.lang3.StringUtils;
-import org.lyflexi.responsibilityChainPattern.chainOfGeneric.handler.AbstractHandler;
-import org.lyflexi.responsibilityChainPattern.chainOfGeneric.model.LoginUser;
+import org.lyflexi.responsibilityChainPattern.chainOfGenericFactory.handler.AbstractHandler;
+import org.lyflexi.responsibilityChainPattern.chainOfGenericFactory.model.LoginUser;
 
 /**
  * @Author: ly

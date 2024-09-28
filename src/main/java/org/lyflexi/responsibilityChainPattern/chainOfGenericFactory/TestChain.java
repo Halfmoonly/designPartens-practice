@@ -1,7 +1,7 @@
-package org.lyflexi.responsibilityChainPattern.chainOfGeneric;
+package org.lyflexi.responsibilityChainPattern.chainOfGenericFactory;
 
-import org.lyflexi.responsibilityChainPattern.chainOfGeneric.model.LoginUser;
-import org.lyflexi.responsibilityChainPattern.chainOfGeneric.model.Robot;
+import org.lyflexi.responsibilityChainPattern.chainOfGenericFactory.model.LoginUser;
+import org.lyflexi.responsibilityChainPattern.chainOfGenericFactory.model.Robot;
 
 /**
  * @Author: ly

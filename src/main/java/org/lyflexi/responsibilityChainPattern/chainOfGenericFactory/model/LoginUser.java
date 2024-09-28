@@ -1,4 +1,4 @@
-package org.lyflexi.responsibilityChainPattern.chainOfGeneric.model;
+package org.lyflexi.responsibilityChainPattern.chainOfGenericFactory.model;
 
 /**
  * @Author: ly

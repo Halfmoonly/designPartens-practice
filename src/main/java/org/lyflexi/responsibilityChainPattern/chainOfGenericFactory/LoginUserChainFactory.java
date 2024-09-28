@@ -1,11 +1,11 @@
-package org.lyflexi.responsibilityChainPattern.chainOfGeneric;
+package org.lyflexi.responsibilityChainPattern.chainOfGenericFactory;
 
 
-import org.lyflexi.responsibilityChainPattern.chainOfGeneric.handler.AbstractHandler;
-import org.lyflexi.responsibilityChainPattern.chainOfGeneric.handler.userhandler.VerifyAccountHandler;
-import org.lyflexi.responsibilityChainPattern.chainOfGeneric.handler.userhandler.VerifyPermissionHanlder;
-import org.lyflexi.responsibilityChainPattern.chainOfGeneric.handler.userhandler.VerifyRoleHanlder;
-import org.lyflexi.responsibilityChainPattern.chainOfGeneric.model.LoginUser;
+import org.lyflexi.responsibilityChainPattern.chainOfGenericFactory.handler.AbstractHandler;
+import org.lyflexi.responsibilityChainPattern.chainOfGenericFactory.handler.userhandler.VerifyAccountHandler;
+import org.lyflexi.responsibilityChainPattern.chainOfGenericFactory.handler.userhandler.VerifyPermissionHanlder;
+import org.lyflexi.responsibilityChainPattern.chainOfGenericFactory.handler.userhandler.VerifyRoleHanlder;
+import org.lyflexi.responsibilityChainPattern.chainOfGenericFactory.model.LoginUser;
 
 /**
  * @Description:

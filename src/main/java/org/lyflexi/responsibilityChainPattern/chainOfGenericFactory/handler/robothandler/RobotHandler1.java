@@ -1,8 +1,8 @@
-package org.lyflexi.responsibilityChainPattern.chainOfGeneric.handler.robothandler;
+package org.lyflexi.responsibilityChainPattern.chainOfGenericFactory.handler.robothandler;
 
 import org.apache.commons.lang3.StringUtils;
-import org.lyflexi.responsibilityChainPattern.chainOfGeneric.handler.AbstractHandler;
-import org.lyflexi.responsibilityChainPattern.chainOfGeneric.model.Robot;
+import org.lyflexi.responsibilityChainPattern.chainOfGenericFactory.handler.AbstractHandler;
+import org.lyflexi.responsibilityChainPattern.chainOfGenericFactory.model.Robot;
 
 /**
  * @Author: ly

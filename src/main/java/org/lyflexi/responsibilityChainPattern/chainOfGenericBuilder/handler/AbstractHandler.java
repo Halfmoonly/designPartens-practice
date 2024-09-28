@@ -1,4 +1,4 @@
-package org.lyflexi.responsibilityChainPattern.chainOfGeneric.handler;
+package org.lyflexi.responsibilityChainPattern.chainOfGenericBuilder.handler;
 
 
 /**
