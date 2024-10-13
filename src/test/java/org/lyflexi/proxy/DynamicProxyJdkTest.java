@@ -25,6 +25,8 @@ public class DynamicProxyJdkTest {
         int delete = userMapper.delete(1);
         System.out.println("result = " + delete);
 
+        System.out.println(System.getProperty("java.io.tmpdir"));
+
     }
 
     /**
