@@ -1,18 +1,19 @@
 package org.lyflexi.proxy.dynamic_proxy_jdk.proxy;
 
 import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
  * 代理逻辑实现
- * 此proxy不仅仅只是适用UserMapper，还适用于其他所有的Mapper
  */
+
 public class MapperProxy<T> implements InvocationHandler {
 
-    private final Class<T> mapperInterface;
+    private final T target;
 
-    public MapperProxy(Class<T> mapperInterface) {
-        this.mapperInterface = mapperInterface;
+    public MapperProxy(T target) {
+        this.target = target;
     }
 
     /**
@@ -26,8 +27,7 @@ public class MapperProxy<T> implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
         // TODO 一些其他的处理
-
-        return execute(args);
+        return execute(method, args);
     }
 
     /**
@@ -37,11 +37,13 @@ public class MapperProxy<T> implements InvocationHandler {
      * @param args
      * @return      数据库执行结果
      */
-    public Object execute(Object[] args) {
+    public Object execute(Method method, Object[] args) {
 
         System.out.println("数据库操作, 并获取执行结果...");
-        Object result = 1;      // 1表示数据库操作返回结果；由于数据库操作并未实现，这里写死成1
-        return result;
+        try {
+            return method.invoke(target, args);
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }
     }
-
 }
