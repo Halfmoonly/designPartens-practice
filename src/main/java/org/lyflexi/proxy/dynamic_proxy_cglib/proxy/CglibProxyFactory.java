@@ -7,7 +7,7 @@ import net.sf.cglib.proxy.MethodInterceptor;
 /**
  * 代理实例创建工厂
  */
-public class DaoProxyFactory{
+public class CglibProxyFactory {
 
     /**
      * 创建代理实例

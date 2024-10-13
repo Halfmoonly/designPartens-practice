@@ -9,11 +9,11 @@ import java.lang.reflect.Method;
  * 代理业务实现
  * 在此增加增强处理
  */
-public class DaoMethodInterceptor implements MethodInterceptor {
+public class CglibMethodInterceptor implements MethodInterceptor {
 
     /**
      * 代理逻辑方法,：cglib这里的几个参数与jdk动态代理h.invoke的参数稍有不同，注意区分
-     * @param target 代理对象
+     * @param proxy 代理对象
      * @param method 方法对象
      * @param args 方法参数
      * @param methodProxy 方法代理
@@ -21,8 +21,8 @@ public class DaoMethodInterceptor implements MethodInterceptor {
      * @throws Throwable
      */
     @Override
-    public Object intercept(Object target, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
-        Object result = execute(target,method,args,methodProxy);
+    public Object intercept(Object proxy, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
+        Object result = execute(proxy,method,args,methodProxy);
         return  result;
     }
 
@@ -34,16 +34,20 @@ public class DaoMethodInterceptor implements MethodInterceptor {
      * @param args
      * @return
      */
-    private Object execute(Object target,Method method,Object[] args,MethodProxy methodProxy) {
+    private Object execute(Object proxy,Method method,Object[] args,MethodProxy methodProxy) {
         System.out.println("cglib前置操作...");
 
         try {
-//            //原方法执行方式1:
-            Object invokeValue1 = methodProxy.invokeSuper(target, args);//执行被代理方法
+            //原方法执行方式invokeSuper:
+            Object invokeValue1 = methodProxy.invokeSuper(proxy, args);//执行被代理方法
             System.out.println("原方法执行方式1:methodProxy.invokeSuper(target, args);的结果："+invokeValue1);
-             //下面这种会出现死循环调用 TODO
+
+
+            // 我们可能会习惯了在jdk动态代理的h.invoke方法中,执行method.invoke(target, args);,其中target是传入h内部的目标对象
+            // 但是注意在cglib的intercept方法签名处,第一个参数是proxy – "this", the enhanced object, 是代理对象即this
+            // 因此下面这种给method.invoke(proxy, args);传入this将一定会出现死循环调用
 //            method.setAccessible(true);
-//            Object invokeValue2 = method.invoke(target, args);
+//            Object invokeValue2 = method.invoke(proxy, args);
 //            System.out.println("原方法执行方式2:method.invoke(target, args);的结果："+invokeValue2);
 
         } catch (Throwable e) {

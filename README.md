@@ -56,6 +56,33 @@ java.lang.reflect.InaccessibleObjectException-->Unable to make protected final j
 ```
 解决方案： 在 java 命令后添加额外的参数 --add-opens java.base/java.lang=ALL-UNNAMED
 
+cglib注意小心使用!
+
+// 我们可能会习惯了在jdk动态代理的h.invoke方法中,执行method.invoke(target, args);target是传入h内部的目标对象
+
+// 但是注意在cglib的intercept方法签名处,第一个参数是proxy – "this", the enhanced object, 是代理对象即this
+
+// 因此下面这种给method.invoke(proxy, args);传入this将会出现死循环调用
+```java
+try {
+    //原方法执行方式invokeSuper:
+    Object invokeValue1 = methodProxy.invokeSuper(proxy, args);//执行被代理方法
+    System.out.println("原方法执行方式1:methodProxy.invokeSuper(target, args);的结果："+invokeValue1);
+
+
+    // 我们可能会习惯了在jdk动态代理的h.invoke方法中,执行method.invoke(target, args);,其中target是传入h内部的目标对象
+    // 但是注意在cglib的intercept方法签名处,第一个参数是proxy – "this", the enhanced object, 是代理对象即this
+    // 因此下面这种给method.invoke(proxy, args);传入this将一定会出现死循环调用
+//            method.setAccessible(true);
+//            Object invokeValue2 = method.invoke(proxy, args);
+//            System.out.println("原方法执行方式2:method.invoke(target, args);的结果："+invokeValue2);
+
+} catch (Throwable e) {
+    throw new RuntimeException(e);
+}
+```
+
+
 ## 装饰者模式	
 适用场景：
 - 方法增强
