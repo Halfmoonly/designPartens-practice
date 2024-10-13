@@ -6,9 +6,9 @@ package org.lyflexi.proxy.dynamic_proxy_jdk_v2.service;
  * @project: designPartens-practice
  * @Date: 2024/10/13 22:53
  */
-public class MyServiceImpl implements IMyService {
+public class OtherServiceImpl implements IOtherService {
     @Override
-    public void doSomething() {
-        System.out.println("Doing something...");
+    public void doOtherthing() {
+        System.out.println("doOtherthing...");
     }
 }

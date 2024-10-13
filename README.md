@@ -27,8 +27,34 @@
 适用场景：
 
 ## 代理模式
+适用场景：
 - jdk动态代理
 - 适用于feign客户端代理原理
+- 使用于mybatis之mapper代理原理
+
+静态代理实现方式：
+- [static_proxy](src%2Fmain%2Fjava%2Forg%2Flyflexi%2Fproxy%2Fstatic_proxy)
+
+动态代理实现方式：
+- [dynamic_proxy_jdk_v1](src/main/java/org/lyflexi/proxy/dynamic_proxy_jdk_v1)
+- [dynamic_proxy_jdk_v2](src/main/java/org/lyflexi/proxy/dynamic_proxy_jdk_v2)
+- [dynamic_proxy_jdk_v3](src/main/java/org/lyflexi/proxy/dynamic_proxy_jdk_v3)
+
+cglib代理实现方式：
+- [dynamic_proxy_cglib](src%2Fmain%2Fjava%2Forg%2Flyflexi%2Fproxy%2Fdynamic_proxy_cglib)
+```xml
+<dependency>
+    <groupId>cglib</groupId>
+    <artifactId>cglib</artifactId>
+    <version>${cglib.version}</version>
+</dependency>
+```
+从 JDK 1.8 升级到 JDK 17 之后，cglib报异常：
+```shell
+Caused by: net.sf.cglib.core.CodeGenerationException: 
+java.lang.reflect.InaccessibleObjectException-->Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @4361bd48
+```
+解决方案： 在 java 命令后添加额外的参数 --add-opens java.base/java.lang=ALL-UNNAMED
 
 ## 装饰者模式	
 适用场景：

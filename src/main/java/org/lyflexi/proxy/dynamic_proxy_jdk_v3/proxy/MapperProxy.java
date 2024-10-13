@@ -1,4 +1,4 @@
-package org.lyflexi.proxy.dynamic_proxy_jdk.proxy;
+package org.lyflexi.proxy.dynamic_proxy_jdk_v3.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
@@ -39,11 +39,15 @@ public class MapperProxy<T> implements InvocationHandler {
      */
     public Object execute(Method method, Object[] args) {
 
-        System.out.println("数据库操作, 并获取执行结果...");
         try {
-            return method.invoke(target, args);
+            //处理Object原生的方法
+            if(method.getDeclaringClass().equals(Object.class)) {
+                return method.invoke(this, args);
+            }
+            System.out.println("通过反射解析mapper接口方法上使用注解标注的sql, 并获取执行结果...");
         } catch (IllegalAccessException | InvocationTargetException e) {
             throw new RuntimeException(e);
         }
+        return null;
     }
 }

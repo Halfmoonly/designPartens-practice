@@ -3,8 +3,8 @@ package org.lyflexi.proxy;
 
 import org.junit.Test;
 
-import org.lyflexi.proxy.dynamic_proxy_jdk_v2.proxy.MyInvocationHandler;
-import org.lyflexi.proxy.dynamic_proxy_jdk_v2.service.MyService;
+import org.lyflexi.proxy.dynamic_proxy_jdk_v2.proxy.GeneralInvocationHandler;
+import org.lyflexi.proxy.dynamic_proxy_jdk_v2.service.IMyService;
 import org.lyflexi.proxy.dynamic_proxy_jdk_v2.service.MyServiceImpl;
 
 import java.lang.reflect.Proxy;
@@ -15,15 +15,15 @@ public class DynamicProxyJdkV2Test {
     public void testProxy() {
         System.getProperties().put("jdk.proxy.ProxyGenerator.saveGeneratedFiles", "true");
         // 创建目标对象
-        MyService target = new MyServiceImpl();
+        IMyService target = new MyServiceImpl();
 
         // 创建 InvocationHandler
-        MyInvocationHandler handler = new MyInvocationHandler(target);
+        GeneralInvocationHandler handler = new GeneralInvocationHandler(target);
 
         // 创建代理对象
-        MyService proxy = (MyService) Proxy.newProxyInstance(
-                MyService.class.getClassLoader(),  // 类加载器
-                new Class[]{MyService.class},     // 接口列表
+        IMyService proxy = (IMyService) Proxy.newProxyInstance(
+                IMyService.class.getClassLoader(),  // 类加载器
+                new Class[]{IMyService.class},     // 接口列表
                 handler                           // InvocationHandler
         );
 

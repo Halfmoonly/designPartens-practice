@@ -1,6 +1,6 @@
-package org.lyflexi.proxy.dynamic_proxy_jdk_v2.proxy;
+package org.lyflexi.proxy.dynamic_proxy_jdk_v1.proxy;
 
-import org.lyflexi.proxy.dynamic_proxy_jdk_v2.service.MyService;
+import org.lyflexi.proxy.dynamic_proxy_jdk_v1.service.ITestService;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -13,10 +13,10 @@ import java.lang.reflect.Method;
  */
 
 // 自定义的 InvocationHandler
-public class MyInvocationHandler implements InvocationHandler {
-    private final MyService target;
+public class MyInvocationHandler<T> implements InvocationHandler {
+    private final T target;
 
-    public MyInvocationHandler(MyService target) {
+    public MyInvocationHandler(T target) {
         this.target = target;
     }
 

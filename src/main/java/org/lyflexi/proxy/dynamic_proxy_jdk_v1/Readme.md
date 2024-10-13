@@ -193,6 +193,7 @@ System.getProperties().put("jdk.proxy.ProxyGenerator.saveGeneratedFiles", "true"
 生成目录结构jdk.proxy1.$Proxy0
 
 查看$Proxy0
+
 ```java
 //
 // Source code recreated from a .class file by IntelliJ IDEA
@@ -206,9 +207,11 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.lang.reflect.UndeclaredThrowableException;
+
+import org.lyflexi.proxy.dynamic_proxy_jdk_v2.service.IMyService;
 import org.lyflexi.proxy.dynamic_proxy_jdk_v2.service.MyService;
 
-public final class $Proxy0 extends Proxy implements MyService {
+public final class $Proxy0 extends Proxy implements IMyService {
     private static final Method m0;
     private static final Method m1;
     private static final Method m2;
@@ -220,7 +223,7 @@ public final class $Proxy0 extends Proxy implements MyService {
 
     public final int hashCode() {
         try {
-            return (Integer)super.h.invoke(this, m0, (Object[])null);
+            return (Integer) super.h.invoke(this, m0, (Object[]) null);
         } catch (RuntimeException | Error var2) {
             throw var2;
         } catch (Throwable var3) {
@@ -230,7 +233,7 @@ public final class $Proxy0 extends Proxy implements MyService {
 
     public final boolean equals(Object var1) {
         try {
-            return (Boolean)super.h.invoke(this, m1, new Object[]{var1});
+            return (Boolean) super.h.invoke(this, m1, new Object[]{var1});
         } catch (RuntimeException | Error var2) {
             throw var2;
         } catch (Throwable var3) {
@@ -240,7 +243,7 @@ public final class $Proxy0 extends Proxy implements MyService {
 
     public final String toString() {
         try {
-            return (String)super.h.invoke(this, m2, (Object[])null);
+            return (String) super.h.invoke(this, m2, (Object[]) null);
         } catch (RuntimeException | Error var2) {
             throw var2;
         } catch (Throwable var3) {
@@ -250,7 +253,7 @@ public final class $Proxy0 extends Proxy implements MyService {
 
     public final void doSomething() {
         try {
-            super.h.invoke(this, m3, (Object[])null);
+            super.h.invoke(this, m3, (Object[]) null);
         } catch (RuntimeException | Error var2) {
             throw var2;
         } catch (Throwable var3) {
@@ -263,7 +266,7 @@ public final class $Proxy0 extends Proxy implements MyService {
             m0 = Class.forName("java.lang.Object").getMethod("hashCode");
             m1 = Class.forName("java.lang.Object").getMethod("equals", Class.forName("java.lang.Object"));
             m2 = Class.forName("java.lang.Object").getMethod("toString");
-            m3 = Class.forName("org.lyflexi.proxy.dynamic_proxy_jdk_v2.service.MyService").getMethod("doSomething");
+            m3 = Class.forName("org.lyflexi.proxy.dynamic_proxy_jdk_v2.service.IMyService").getMethod("doSomething");
         } catch (NoSuchMethodException var2) {
             throw new NoSuchMethodError(var2.getMessage());
         } catch (ClassNotFoundException var3) {

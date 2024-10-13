@@ -1,4 +1,4 @@
-package org.lyflexi.proxy.dynamic_proxy_jdk.proxy;
+package org.lyflexi.proxy.dynamic_proxy_jdk_v3.proxy;
 
 import java.lang.reflect.Proxy;
 
