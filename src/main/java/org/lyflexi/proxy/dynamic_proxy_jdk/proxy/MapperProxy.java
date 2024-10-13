@@ -25,7 +25,7 @@ public class MapperProxy<T> implements InvocationHandler {
      * @throws Throwable
      */
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-
+        System.out.println("proxy:"+proxy.getClass().getName());
         // TODO 一些其他的处理
         return execute(method, args);
     }
