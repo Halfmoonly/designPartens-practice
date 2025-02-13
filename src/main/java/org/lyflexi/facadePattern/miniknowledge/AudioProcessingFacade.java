@@ -1,4 +1,4 @@
-package org.lyflexi.facadePattern;
+package org.lyflexi.facadePattern.miniknowledge;
 
 /**
  * @Author: ly

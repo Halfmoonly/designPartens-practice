@@ -1,4 +1,4 @@
-package org.lyflexi.facadePattern;
+package org.lyflexi.facadePattern.miniknowledge;
 
 
 // 子系统类 - 格式转换

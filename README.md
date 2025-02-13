@@ -124,6 +124,25 @@ try {
 - 业务二次封装缓存组件
 - 业务二次封装消息组件
 
+门面模式除了符合最小知识集原理之外，
+
+门面模式还可以增强程序的安全性，比如在Java中，如果你有一个Father类和它的两个子类Son1和Son2，并且你有一个方法接受一个类型为Father的参数，那么你可以尝试将这个参数向下转型（downcast）为具体的Son1或Son2。例如：
+
+在这两个具体类Son1/Son2中我们定义了许多内部的方法，原理上他可以进行强制转换之后调用，这样也不是很安全
+```java
+public void someMethod(Father father) {
+    if (father instanceof Son1) {
+        Son1 s1 = (Son1) father;
+        // 现在可以使用s1作为Son1对象
+    } else if (father instanceof Son2) {
+        Son2 s2 = (Son2) father;
+        // 现在可以使用s2作为Son2对象
+    }
+}
+```
+注意要使用instanceof关键字检查传入的对象是否实际上是Son1或Son2的实例。这样做是为了避免ClassCastException，因为如果直接进行强制类型转换而不进行这种检查，且传入的对象不是目标类型的实例时，就会抛出这个异常。
+
+
 ## 桥接模式	
 适用场景：
 
