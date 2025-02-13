@@ -128,7 +128,9 @@ try {
 
 门面模式还可以增强程序的安全性，比如在Java中，如果你有一个Father类和它的两个子类Son1和Son2，并且你有一个方法接受一个类型为Father的参数，那么你可以尝试将这个参数向下转型（downcast）为具体的Son1或Son2。例如：
 
-在这两个具体类Son1/Son2中我们定义了许多内部的方法，原理上他可以进行强制转换之后调用，这样也不是很安全
+在这两个具体类Son1/Son2中我们定义了许多内部的方法，原理上他可以进行强制转换之后调用，但这样不安全，除了接口Father中的公开方法之外，还暴露了Son1和Son2内部的隐私方法
+
+注意要使用instanceof关键字检查传入的对象是否实际上是Son1或Son2的实例。这样做是为了避免ClassCastException，因为如果直接进行强制类型转换而不进行这种检查，且传入的对象不是目标类型的实例时，就会抛出这个异常。
 ```java
 public void someMethod(Father father) {
     if (father instanceof Son1) {
@@ -140,8 +142,8 @@ public void someMethod(Father father) {
     }
 }
 ```
-注意要使用instanceof关键字检查传入的对象是否实际上是Son1或Son2的实例。这样做是为了避免ClassCastException，因为如果直接进行强制类型转换而不进行这种检查，且传入的对象不是目标类型的实例时，就会抛出这个异常。
 
+门面模式针对上述接口类型Father向下转型的情况（强制类型转换），增强了接口安全性, 详见[facadePattern](src%2Fmain%2Fjava%2Forg%2Flyflexi%2FfacadePattern)
 
 ## 桥接模式	
 适用场景：
