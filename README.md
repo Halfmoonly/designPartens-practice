@@ -152,8 +152,11 @@ public void someMethod(Father father) {
 适用场景：
 
 ## 迭代器模式	
-适用场景：
-- 如iterator
+适用场景：实现Iterable接口的被迭代目标，可以使用增强型for循环
+
+需要：
+1. 目标对象实现Iterable接口，实现iterator方法
+2. 定义个内部类实现Iterator接口，实现hasNext和next方法
 
 ## 状态模式	
 适用场景：
