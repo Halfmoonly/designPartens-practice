@@ -154,9 +154,9 @@ public void someMethod(Father father) {
 ## 迭代器模式	
 适用场景：实现Iterable接口的被迭代目标，可以使用增强型for循环
 
-需要：
-1. 目标对象实现Iterable接口，实现iterator方法
-2. 定义个内部类实现Iterator接口，实现hasNext和next方法
+可以通过迭代器模式重构数据读取代码装个逼，实现方式如下：
+1. 目标对象如FileUser需要实现Iterable接口，实现其中的iterator方法
+2. 定义个内部类实现Iterator接口，实现其中的hasNext和next方法
 
 ## 状态模式	
 适用场景：
@@ -172,3 +172,12 @@ public void someMethod(Father father) {
 适用场景：
 
 ## 访问者模式	
+
+## 装饰器模式
+装饰器模式是基于组合来扩展对象的功能。
+
+组合优于继承：
+1. 装饰器的功能可能依赖被装饰对象的特性，假如HistorySet需要让set有序，那就可以包装TreeSet，HashSet满足不了需求。
+2. 如果被装饰的对象是final就没办法继承
+3. Java只能单一继承，如果你需要继承其他类那就做不到了。
+4. 装饰器可以多次装饰，层级装饰，你可以发挥想象力各种封装组合，但是继承不可以。
