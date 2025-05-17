@@ -2,7 +2,7 @@ package org.lyflexi.observerPattern.eventBus;
 
 
 /**
- * @author gongxuanzhangmelt@gmail.com
+ * @author 
  **/
 public interface Event {
 

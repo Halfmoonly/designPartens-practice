@@ -3,7 +3,7 @@ package org.lyflexi.decorator.set;
 import java.util.*;
 
 /**
- * @author gongxuanzhangmelt@gmail.com
+ * @author 
  *
  * This class is a decorator for the Set interface that keeps track of removed elements.该类是Set接口的装饰器，用于跟踪已删除的元素。
  *

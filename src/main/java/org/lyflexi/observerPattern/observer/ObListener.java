@@ -3,7 +3,7 @@ package org.lyflexi.observerPattern.observer;
 import org.lyflexi.observerPattern.eventBus.Event;
 
 /**
- * @author gongxuanzhangmelt@gmail.com
+ * @author 
  **/
 public interface ObListener {
 

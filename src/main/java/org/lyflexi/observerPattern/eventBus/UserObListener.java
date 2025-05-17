@@ -3,7 +3,7 @@ package org.lyflexi.observerPattern.eventBus;
 import java.util.function.Consumer;
 
 /**
- * @author gongxuanzhangmelt@gmail.com
+ * @author 
  **/
 public class UserObListener implements EventObListener {
 

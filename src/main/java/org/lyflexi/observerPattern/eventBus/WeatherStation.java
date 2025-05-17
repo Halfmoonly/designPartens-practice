@@ -3,7 +3,7 @@ package org.lyflexi.observerPattern.eventBus;
 import java.util.Random;
 
 /**
- * @author gongxuanzhangmelt@gmail.com
+ * @author 
  **/
 public class WeatherStation {
 

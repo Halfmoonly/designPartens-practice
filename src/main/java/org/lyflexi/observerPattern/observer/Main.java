@@ -2,7 +2,7 @@ package org.lyflexi.observerPattern.observer;
 
 
 /**
- * @author gongxuanzhangmelt@gmail.com
+ * @author 
  **/
 public class Main {
     //  观察者模式 --> 事件产生者WeatherStation产生消息，直接发送事件通知用户

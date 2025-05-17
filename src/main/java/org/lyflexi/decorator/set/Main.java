@@ -3,7 +3,7 @@ package org.lyflexi.decorator.set;
 import java.util.*;
 
 /**
- * @author gongxuanzhangmelt@gmail.com
+ * @author 
  **/
 public class Main {
     public static void main(String[] args) {

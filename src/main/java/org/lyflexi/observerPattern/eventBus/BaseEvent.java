@@ -1,7 +1,7 @@
 package org.lyflexi.observerPattern.eventBus;
 
 /**
- * @author gongxuanzhangmelt@gmail.com
+ * @author 
  **/
 public abstract class BaseEvent implements Event {
 

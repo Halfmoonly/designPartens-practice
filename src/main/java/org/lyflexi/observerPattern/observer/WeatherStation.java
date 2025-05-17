@@ -5,7 +5,7 @@ import org.lyflexi.observerPattern.eventBus.Event;
 import java.util.*;
 
 /**
- * @author gongxuanzhangmelt@gmail.com
+ * @author 
  **/
 public class WeatherStation {
 

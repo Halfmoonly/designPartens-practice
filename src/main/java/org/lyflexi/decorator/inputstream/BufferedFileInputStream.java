@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * @author gongxuanzhangmelt@gmail.com
+ * @author 
  **/
 public class BufferedFileInputStream extends InputStream {
 
